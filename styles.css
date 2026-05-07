@@ -1,3 +1,4 @@
+/* --- Variables & Reset --- */
 :root {
     --primary-color: #6366f1;
     --secondary-color: #ec4899;
@@ -22,6 +23,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--text-dark);
     line-height: 1.6;
+    background-color: white;
 }
 
 .container {
@@ -30,7 +32,7 @@ body {
     padding: 0 20px;
 }
 
-/* Navigation */
+/* --- Navigation --- */
 .navbar {
     position: sticky;
     top: 0;
@@ -85,21 +87,7 @@ body {
     width: 100%;
 }
 
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background: var(--text-dark);
-    margin: 5px 0;
-    transition: 0.3s;
-}
-
-/* Hero Section */
+/* --- Hero Section --- */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -111,67 +99,89 @@ body {
     padding: 2rem;
 }
 
-.hero-content {
-    animation: fadeInUp 0.8s ease;
-}
-
 .hero-title {
     font-size: 4rem;
     margin-bottom: 1rem;
     font-weight: 800;
+    animation: fadeInUp 0.8s ease;
 }
 
 .hero-subtitle {
     font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 2rem;
     opacity: 0.9;
 }
 
-.hero-description {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    opacity: 0.8;
+/* --- Highlights Section (New & Improved) --- */
+.highlights {
+    background: var(--light-bg);
+    padding: 5rem 0;
 }
 
-.hero-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
+.highlight-event {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    margin-bottom: 3rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
 }
 
-.btn {
-    padding: 12px 30px;
-    border-radius: 8px;
-    text-decoration: none;
+.highlight-date {
+    color: var(--primary-color);
     font-weight: 600;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: none;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    text-transform: uppercase;
 }
 
-.btn-primary {
+/* --- Gallery Grid System --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 10px;
+    aspect-ratio: 1 / 1;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover .gallery-img {
+    transform: scale(1.08);
+}
+
+/* --- Research & Cards --- */
+.research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.research-card {
     background: white;
-    color: #667eea;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid var(--primary-color);
 }
 
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-
-.btn-secondary {
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-}
-
-.btn-secondary:hover {
-    background: white;
-    color: #667eea;
-}
-
-/* Sections */
+/* --- Sections Common --- */
 section {
     padding: 4rem 0;
 }
@@ -180,7 +190,6 @@ section {
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 3rem;
-    color: var(--text-dark);
 }
 
 .section-title::after {
@@ -193,385 +202,35 @@ section {
     border-radius: 2px;
 }
 
-/* About Section */
-.about {
-    background: var(--light-bg);
-}
-
-.about-text {
-    margin-bottom: 2rem;
-}
-
-.about-text p {
-    font-size: 1.1rem;
-    color: var(--text-light);
-    margin-bottom: 1.5rem;
-    line-height: 1.8;
-}
-
-.about-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.stat {
-    text-align: center;
-    padding: 1.5rem;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-}
-
-.stat h3 {
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-}
-
-.stat p {
-    color: var(--text-light);
-}
-
-/* Research Section */
-.research-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.research-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    border-left: 4px solid var(--primary-color);
-}
-
-.research-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-}
-
-.research-card h3 {
-    color: var(--text-dark);
-    margin-bottom: 0.5rem;
-    font-size: 1.3rem;
-}
-
-.research-period {
-    color: var(--primary-color);
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-.research-card ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.research-card li {
-    color: var(--text-light);
-    margin-bottom: 0.7rem;
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-.research-card li::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    color: var(--secondary-color);
-    font-weight: bold;
-}
-
-/* Skills Section */
-.skills {
-    background: var(--light-bg);
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.skill-category {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-}
-
-.skill-category h3 {
-    color: var(--text-dark);
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-}
-
-.skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.skill-tag {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-/* Highlights Section */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.75rem;
-}
-
-.gallery-item {
-    overflow: hidden;
-    border-radius: 4px;
-    aspect-ratio: 4/3;
-}
-
-.gallery-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.3s;
-}
-
-.gallery-item:hover .gallery-img {
-    transform: scale(1.05);
-}
-
-/* Photography Section */
-.photography-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-}
-
-.photo-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 4px;
-    aspect-ratio: 3/4;
-}
-
-.photo-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s;
-}
-
-.photo-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.5);
-    display: flex;
-    align-items: flex-end;
-    padding: 1rem;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.photo-item:hover .photo-img {
-    transform: scale(1.05);
-}
-
-.photo-item:hover .photo-overlay {
-    opacity: 1;
-}
-/* Achievements Section */
-.achievements {
-    background: white;
-}
-
-.achievements-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.achievement-item {
-    text-align: center;
-    padding: 2rem;
-    background: var(--light-bg);
-    border-radius: 12px;
-    transition: all 0.3s ease;
-}
-
-.achievement-item:hover {
-    transform: translateY(-8px);
-    background: white;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-}
-
-.achievement-item i {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
-.achievement-item h3 {
-    color: var(--text-dark);
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
-}
-
-.achievement-item p {
-    color: var(--text-light);
-    font-size: 0.95rem;
-}
-
-/* Contact Section */
-.contact {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
-    text-align: center;
-}
-
-.contact-content p {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-}
-
-.contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    color: white;
-    text-decoration: none;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-}
-
-.contact-item:hover {
-    transform: translateX(10px);
-}
-
-.contact-item i {
-    font-size: 1.5rem;
-}
-
-/* Footer */
+/* --- Footer --- */
 .footer {
     background: var(--dark-bg);
     color: white;
     text-align: center;
-    padding: 2rem;
+    padding: 2.5rem;
 }
 
-/* Animations */
+/* --- Animations --- */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Gallery Section */
-.gallery-grid {
-    display: grid;
-    /* Isse 3 columns banenge, image choti rahegi */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-    gap: 1.5rem;
-    padding: 2rem 0;
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-title { font-size: 3rem; }
 }
 
-.gallery-item {
-    overflow: hidden;
-    border-radius: 12px; /* Smooth corners */
-    aspect-ratio: 1 / 1; /* Square shape ke liye, ya 4/3 use karein */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
-
-.gallery-item:hover {
-    transform: scale(1.03); /* Hover effect */
-}
-
-.gallery-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Image kategi nahi, box me fit ayegi */
-    display: block;
-}
-
-/* Responsive fix for smaller screens */
-@media (max-width: 480px) {
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr); /* Mobile par ek line me 2 photos */
-        gap: 0.5rem;
-    }
-}
-/* Responsive */
 @media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
-
     .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background-color: white;
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        gap: 0;
-        padding: 2rem 0;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.1);
+        display: none; /* Add hamburger logic here later */
     }
-
-    .nav-menu.active {
-        left: 0;
-    }
-
-    .hero-title {
-        font-size: 2rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-
-    .section-title {
-        font-size: 1.8rem;
-    }
-
-    .research-grid,
-    .skills-grid,
-    .achievements-grid {
-        grid-template-columns: 1fr;
-    }
-
-  .gallery-grid,
-.photography-grid {
-    grid-template-columns: repeat(2, 1fr);
+    .hero-title { font-size: 2.5rem; }
+    .highlight-event { padding: 1.5rem; }
 }
+
+@media (max-width: 480px) {
+    .gallery-grid { grid-template-columns: 1fr; }
+    .section-title { font-size: 1.8rem; }
 }
