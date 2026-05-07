@@ -493,6 +493,41 @@ section {
     }
 }
 
+/* Gallery Section */
+.gallery-grid {
+    display: grid;
+    /* Isse 3 columns banenge, image choti rahegi */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 1.5rem;
+    padding: 2rem 0;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 12px; /* Smooth corners */
+    aspect-ratio: 1 / 1; /* Square shape ke liye, ya 4/3 use karein */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03); /* Hover effect */
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Image kategi nahi, box me fit ayegi */
+    display: block;
+}
+
+/* Responsive fix for smaller screens */
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr); /* Mobile par ek line me 2 photos */
+        gap: 0.5rem;
+    }
+}
 /* Responsive */
 @media (max-width: 768px) {
     .hamburger {
