@@ -1,0 +1,57 @@
+# Shivanshu Agrawal - Portfolio Website
+
+A modern, responsive personal portfolio website showcasing research, skills, and achievements.
+
+## Features
+
+✨ **Modern Design**
+- Gradient backgrounds and smooth animations
+- Fully responsive (mobile, tablet, desktop)
+- Sticky navigation bar
+- Smooth scrolling
+
+📱 **Mobile Friendly**
+- Hamburger menu for mobile navigation
+- Optimized for all screen sizes
+
+🎯 **Sections**
+- Hero section with call-to-action
+- About with key statistics
+- Research projects showcase
+- Technical skills organized by category
+- Achievements and awards
+- Contact information
+
+## Quick Start
+
+1. Download or clone all files to a folder
+2. Open `index.html` in your browser
+3. That's it! No build process needed.
+
+## Deployment Options
+
+### Option 1: GitHub Pages (Free)
+1. Create a GitHub repository named `portfolio`
+2. Push these files to the repository
+3. Go to Settings → Pages → Select main branch
+4. Your site will be live at `https://yourusername.github.io/portfolio`
+
+### Option 2: Netlify (Free)
+1. Go to [netlify.com](https://netlify.com)
+2. Drag and drop this folder
+3. Your site goes live instantly
+
+### Option 3: Vercel (Free)
+1. Go to [vercel.com](https://vercel.com)
+2. Import your GitHub repository
+3. Deploy with one click
+
+## Customization
+
+### Change Colors
+Edit the CSS variables in `styles.css`:
+```css
+:root {
+    --primary-color: #6366f1;
+    --secondary-color: #ec4899;
+}
